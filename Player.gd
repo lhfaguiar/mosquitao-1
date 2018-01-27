@@ -11,14 +11,13 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	var direita = Input.is_action_pressed("gira_direita") && rad2deg(get_rot()) < 105
-	var esquerda = Input.is_action_pressed("gira_esquerda") && rad2deg(get_rot()) > 255
-	
+	# Declara dois booleans pra verificar se tecla pressinada e rota
+	var direita = Input.is_action_pressed("gira_direita") && rad2deg(get_rot()) > 125
+	var esquerda = Input.is_action_pressed("gira_esquerda") && rad2deg(get_rot()) < 235
+
 	if (direita && esquerda):
 		return
 	if (direita):
-		print(rad2deg(get_rot()))
 		rotate(-TURN_SPEED)
 	if (esquerda):
-		
 		rotate(TURN_SPEED)
