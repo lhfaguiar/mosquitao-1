@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends TileMap
 
 # class member variables go here, for example:
 # var a = 2
@@ -6,7 +6,6 @@ extends RigidBody2D
 
 func _ready():
 	set_process(true)
-	
+
 func _process(delta):
-	if get_pos().y < -100:
-		queue_free()
+	pass
