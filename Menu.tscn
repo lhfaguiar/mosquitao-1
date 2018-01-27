@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://MetalShard.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://Sun.png" type="Texture" id=2]
 [ext_resource path="res://Cloud.png" type="Texture" id=3]
 [ext_resource path="res://Neoteric.fnt" type="BitmapFont" id=4]
-[ext_resource path="res://GetPlay.gd" type="Script" id=5]
-[ext_resource path="res://Thunderbolt.png" type="Texture" id=6]
+[ext_resource path="res://Thunderbolt.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -58,7 +57,7 @@ max_lines_visible = -1
 [node name="Sun" type="Sprite" parent="."]
 
 visibility/behind_parent = true
-transform/pos = Vector2( 256, 743 )
+transform/pos = Vector2( 256, 744.913 )
 texture = ExtResource( 2 )
 
 [node name="PlayButton" type="Sprite" parent="."]
@@ -85,7 +84,6 @@ shortcut = null
 text = "PLAY"
 flat = true
 clip_text = true
-script/script = ExtResource( 5 )
 
 [node name="RaiosETrovoes" type="AnimationPlayer" parent="PlayButton/PlayButton"]
 
@@ -102,7 +100,7 @@ autoplay = ""
 
 transform/pos = Vector2( 571.918, 912.25 )
 transform/scale = Vector2( 1.02002, 0.823795 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="SettingsButton" type="Sprite" parent="."]
 
@@ -142,7 +140,7 @@ autoplay = ""
 
 transform/pos = Vector2( 579.741, 1315.49 )
 transform/scale = Vector2( 0.833728, 0.922536 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="ExitButton 2" type="Sprite" parent="."]
 

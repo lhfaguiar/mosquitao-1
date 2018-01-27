@@ -2,7 +2,7 @@
 
 [ext_resource path="res://PHolderTriangle.png" type="Texture" id=1]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends Sprite
 
@@ -63,7 +63,7 @@ func _input(ev):
 custom_solver_bias = 0.0
 extents = Vector2( 10, 12.4554 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 12.465 )
@@ -76,7 +76,7 @@ transform/pos = Vector2( 536.575, 1920 )
 transform/rot = 180.0
 transform/scale = Vector2( 0.077204, 0.116442 )
 texture = ExtResource( 1 )
-script/script = SubResource( 3 )
+script/script = SubResource( 1 )
 
 [node name="ParedeEsquerda" type="StaticBody2D" parent="."]
 
@@ -104,7 +104,7 @@ _update_shape_index = 0
 
 transform/pos = Vector2( 1150.51, 3.70196 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 4, 0, 0, 80, -29.761, 960.206 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -118,7 +118,7 @@ bounce = 1.0
 
 transform/pos = Vector2( -29.761, 960.206 )
 transform/scale = Vector2( 4, 80 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
