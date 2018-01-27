@@ -1,7 +1,67 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://PHolderTriangle.png" type="Texture" id=1]
-[ext_resource path="res://player.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends Sprite
+
+
+#x cos
+#y sen
+# em segundos
+const TURN_SPEED = deg2rad(4)
+const DELAY_TIRO = 0.3
+const MIN_ANGULO = deg2rad(125)
+const MAX_ANGULO = deg2rad(235)
+# Ja comeca liberado
+var timer = DELAY_TIRO
+var botao_segurado = false
+onready var PROJETIL = preload(\"res://Projetil.tscn\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	set_process(true)
+	set_process_input(true)
+
+func _process(delta):
+	# Adicina delta (secs desde ultima frame)
+	timer += delta
+	var rads = get_rot()
+	var direita = Input.is_action_pressed(\"gira_direita\") && rads > MIN_ANGULO
+	var esquerda = Input.is_action_pressed(\"gira_esquerda\") && rads < MAX_ANGULO
+	var botao_atirar = Input.is_action_pressed(\"atirar\")
+
+	if botao_atirar and timer > DELAY_TIRO and not botao_segurado:
+		botao_segurado = true
+		var projetil = PROJETIL.instance()
+		var mat_accel = Vector2(0, -1000)
+		mat_accel = mat_accel.rotated(rads - PI)
+		projetil.set_linear_velocity(mat_accel)
+		projetil.set_pos(get_pos())
+		get_parent().add_child(projetil)
+		timer = 0
+	botao_segurado = botao_atirar
+
+	if (direita and esquerda) or Input.is_mouse_button_pressed(1):
+		return
+	if direita:
+		rotate(-TURN_SPEED)
+	elif esquerda:
+		rotate(TURN_SPEED)
+
+func _input(ev):
+	if ((ev.type == InputEvent.MOUSE_BUTTON and ev.pressed) or 
+			(ev.type == InputEvent.MOUSE_MOTION and botao_segurado)):
+		#TODO Max angle
+		set_rot(max(min(get_pos().angle_to_point(ev.pos) + PI, MAX_ANGULO), MIN_ANGULO))
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 12.4554 )
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,13 +76,13 @@ transform/pos = Vector2( 536.575, 1920 )
 transform/rot = 180.0
 transform/scale = Vector2( 0.077204, 0.116442 )
 texture = ExtResource( 1 )
-script/script = ExtResource( 2 )
+script/script = SubResource( 3 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="ParedeEsquerda" type="StaticBody2D" parent="."]
 
 transform/pos = Vector2( -11.0803, 8.86425 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 4, 0, 0, 80, -29.761, 954.486 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -32,20 +92,20 @@ constant_angular_velocity = 0.0
 friction = 0.0
 bounce = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsquerda"]
 
 transform/pos = Vector2( -29.761, 954.486 )
 transform/scale = Vector2( 4, 80 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
-[node name="StaticBody2D1" type="StaticBody2D" parent="."]
+[node name="ParedeDireita" type="StaticBody2D" parent="."]
 
 transform/pos = Vector2( 1150.51, 3.70196 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 4, 0, 0, 80, -29.761, 954.486 )
+shapes/0/transform = Matrix32( 4, 0, 0, 80, -29.761, 960.206 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -53,13 +113,10 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 0.0
 bounce = 1.0
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDireita"]
 
-transform/pos = Vector2( -29.761, 954.486 )
+transform/pos = Vector2( -29.761, 960.206 )
 transform/scale = Vector2( 4, 80 )
 shape = SubResource( 1 )
 trigger = false
