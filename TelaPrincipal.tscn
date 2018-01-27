@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://pholder_triangle.png" type="Texture" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="pholder_triangle" type="Sprite" parent="."]
+
+transform/pos = Vector2( 540, 1920 )
+transform/rot = 180.0
+transform/scale = Vector2( 0.198342, 0.177109 )
+texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+
+
