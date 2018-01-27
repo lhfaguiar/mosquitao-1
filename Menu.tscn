@@ -1,11 +1,28 @@
-<<<<<<< HEAD
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://MetalShard.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://Sun.png" type="Texture" id=2]
 [ext_resource path="res://Cloud.png" type="Texture" id=3]
 [ext_resource path="res://Neoteric.fnt" type="BitmapFont" id=4]
 [ext_resource path="res://GetPlay.gd" type="Script" id=5]
+[ext_resource path="res://Thunderbolt.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "Raios"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../SettingsButton/SettingsButton/AnimationPlayer/Thunderbolt:centered")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="Control" type="Control"]
 
@@ -56,9 +73,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -1005.0
+margin/left = -1000.0
 margin/top = -650.0
-margin/right = 995.0
+margin/right = 1000.0
 margin/bottom = 650.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -70,6 +87,23 @@ flat = true
 clip_text = true
 script/script = ExtResource( 5 )
 
+[node name="RaiosETrovoes" type="AnimationPlayer" parent="PlayButton/PlayButton"]
+
+playback/process_mode = 0
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Raios = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Thunderbolt" type="Sprite" parent="PlayButton/PlayButton/RaiosETrovoes"]
+
+transform/pos = Vector2( 571.918, 912.25 )
+transform/scale = Vector2( 1.02002, 0.823795 )
+texture = ExtResource( 6 )
+
 [node name="SettingsButton" type="Sprite" parent="."]
 
 transform/pos = Vector2( 556, 912.8 )
@@ -77,16 +111,10 @@ transform/scale = Vector2( 0.4, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="SettingsButton" type="Button" parent="SettingsButton"]
-=======
-[gd_scene format=1]
-
-[node name="Label" type="Label"]
->>>>>>> 2b75e1bc7773fbbedeae84c196e3dc66614eb525
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
-<<<<<<< HEAD
 size_flags/vertical = 2
 margin/left = -1000.0
 margin/top = -649.0
@@ -99,6 +127,22 @@ enabled_focus_mode = 2
 shortcut = null
 text = "SETTINGS"
 flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SettingsButton/SettingsButton"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Thunderbolt" type="Sprite" parent="SettingsButton/SettingsButton/AnimationPlayer"]
+
+transform/pos = Vector2( 579.741, 1315.49 )
+transform/scale = Vector2( 0.833728, 0.922536 )
+texture = ExtResource( 6 )
 
 [node name="ExitButton 2" type="Sprite" parent="."]
 
@@ -123,16 +167,15 @@ enabled_focus_mode = 2
 shortcut = null
 text = "EXIT"
 flat = true
-=======
-size_flags/vertical = 0
-margin/left = 117.0
-margin/top = 177.0
-margin/right = 157.0
-margin/bottom = 191.0
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
->>>>>>> 2b75e1bc7773fbbedeae84c196e3dc66614eb525
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ExitButton 2/ExitButton"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 

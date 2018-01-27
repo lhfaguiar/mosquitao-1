@@ -7,4 +7,5 @@ extends Button
 func _ready():
 #this event is called once per key-press
     if event.is_action_pressed("PlayButton"):
+		
 		get_node("TelaPrincipal")
