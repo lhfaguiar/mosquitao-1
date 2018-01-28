@@ -68,12 +68,12 @@ func _input(ev):
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 14.8985 )
+extents = Vector2( 10, 17.0989 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 15.1385 )
+extents = Vector2( 10, 17.3079 )
 
 [node name="raiz" type="Node2D"]
 
@@ -99,11 +99,10 @@ texture = ExtResource( 4 )
 
 [node name="ParedeEsquerda" type="StaticBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( -11.0803, 8.86425 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 4, 0, 0, 80, -29.761, 954.486 )
+shapes/0/transform = Matrix32( 4, 0, 0, 80, -29.761, 728.826 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -114,7 +113,7 @@ bounce = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsquerda"]
 
-transform/pos = Vector2( -29.761, 954.486 )
+transform/pos = Vector2( -29.761, 728.826 )
 transform/scale = Vector2( 4, 80 )
 shape = SubResource( 2 )
 trigger = false
@@ -122,11 +121,10 @@ _update_shape_index = 0
 
 [node name="ParedeDireita" type="StaticBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 1150.51, 3.70196 )
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 4, 0, 0, 80, -29.761, 960.206 )
+shapes/0/transform = Matrix32( 4, 0, 0, 80, -29.761, 740.109 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -137,7 +135,7 @@ bounce = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDireita"]
 
-transform/pos = Vector2( -29.761, 960.206 )
+transform/pos = Vector2( -29.761, 740.109 )
 transform/scale = Vector2( 4, 80 )
 shape = SubResource( 3 )
 trigger = false
