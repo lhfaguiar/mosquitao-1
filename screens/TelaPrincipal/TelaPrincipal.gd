@@ -1,6 +1,9 @@
 extends Node2D
 
-var INIMIGO = preload("res://OInimigo.tscn")
+var MOSQUITAO = preload("res://cenas/mosquitao.tscn")
+var MOSQUITO = preload("res://cenas/mosquito.tscn")
+var LARVA = preload("res://cenas/larva.tscn")
+var OVO = preload("res://cenas/ovo.tscn")
 var speed = 40
 var delay_spawn = speed * 0.08
 var timer = delay_spawn
@@ -23,7 +26,16 @@ func _process(delta):
 		timer = 0
 		delay_spawn -= delay_spawn * 0.01
 		for x in range(1, 8):
-			var alvo = INIMIGO.instance()
+			var alvo
+			var qual = randf()
+			if qual < 0.8:
+				alvo = OVO.instance()
+			elif qual < 0.9:
+				alvo = LARVA.instance()
+			elif qual < 0.98:
+				alvo = MOSQUITO.instance()
+			else: #elif qual < 0.02:
+				alvo = MOSQUITAO.instance()
 			var loc = Vector2(x * 135, -100)
 			loc.y += rand_range(-20, 20)
 			if on:
