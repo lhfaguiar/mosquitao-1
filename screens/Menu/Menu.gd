@@ -2,8 +2,8 @@
 extends "../AbstractScreen.gd"
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://screens/TelaPrincipal/TelaPrincipal.tscn")
+	Loader.emit_signal("change_screen", "res://screens/TelaPrincipal/TelaPrincipal.tscn")	
 
 func _on_ExitButton_pressed():
-	get_tree().quit();
+	get_tree().quit()
 	

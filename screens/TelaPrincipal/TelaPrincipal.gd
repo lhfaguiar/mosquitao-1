@@ -14,8 +14,6 @@ var max_time = 100
 var current_scene
 
 func _ready():
-	var root = get_tree().get_root()
-	current_scene = root.get_child(root.get_child_count() -1)
 	set_process(true)
 
 func _process(delta):
@@ -44,3 +42,7 @@ func _on_ParedeTopo_body_enter(body):
 
 func _end_game():
 	get_tree().change_scene("res://screens/Menu/Menu.tscn")
+
+
+func _on_Sprite_visibility_changed():
+	pass # replace with function body

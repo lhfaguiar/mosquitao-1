@@ -83,6 +83,7 @@ script/script = SubResource( 1 )
 
 [node name="ParedeEsquerda" type="StaticBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -11.0803, 8.86425 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
@@ -105,6 +106,7 @@ _update_shape_index = 0
 
 [node name="ParedeDireita" type="StaticBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 1150.51, 3.70196 )
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
