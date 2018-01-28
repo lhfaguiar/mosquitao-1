@@ -7,7 +7,7 @@ var fps
 var screens = {
 		"Menu": preload("res://screens/Menu/Menu.tscn"),
 		"TelaPrincipal": preload("res://screens/TelaPrincipal/TelaPrincipal.tscn"),
-		"Controls": preload("res://screens/Controls/Controls.tscn"),
+	#	"Controls": preload("res://screens/Controls/Controls.tscn"),
 	}
 	
 func _ready():

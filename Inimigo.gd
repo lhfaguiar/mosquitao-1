@@ -7,6 +7,7 @@ var mosquitao = preload("res://Objects/mosquitao.png")
 var vida = 1
 onready var sprite = get_node("ovo")
 onready var timer = get_node("timer")
+signal game_over
 
 func _ready():
 	set_process(true)
@@ -24,6 +25,7 @@ func _on_Bolha_body_enter( body ):
 
 func _process(delta):
 	if get_pos().y > 2000:
+		emit_signal("game_over")
 		queue_free()
 
 func _on_Timer_timeout():

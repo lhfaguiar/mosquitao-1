@@ -8,7 +8,14 @@ var on = true
 var dificulty_mult = 0.2
 var timer_total = 0
 
+var loader
+var frames
+var max_time = 100
+var current_scene
+
 func _ready():
+	var root = get_tree().get_root()
+	current_scene = root.get_child(root.get_child_count() -1)
 	set_process(true)
 
 func _process(delta):
@@ -28,8 +35,12 @@ func _process(delta):
 			alvo.set_pos(loc)
 			alvo.set_gravity_scale(0)
 			alvo.set_linear_velocity(Vector2(0, (speed * (timer_total / 100)) + speed))
+			alvo.connect("game_over", self, "_end_game")
 			add_child(alvo)
 		on = not on
 
 func _on_ParedeTopo_body_enter(body):
-	body.queue_free() 
+	body.queue_free()
+
+func _end_game():
+	get_tree().change_scene("res://screens/Menu/Menu.tscn")
