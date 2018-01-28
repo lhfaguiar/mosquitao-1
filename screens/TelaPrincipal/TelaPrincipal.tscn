@@ -95,7 +95,6 @@ texture = ExtResource( 4 )
 
 [node name="ParedeEsquerda" type="StaticBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( -11.0803, 8.86425 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
