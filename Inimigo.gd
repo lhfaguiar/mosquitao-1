@@ -11,6 +11,12 @@ signal game_over
 
 func _ready():
 	set_process(true)
+	if "larva" in get_name().to_lower():
+		vida = 3
+	elif "mosquito" in get_name().to_lower():
+		vida = 4
+	elif "mosquitao" in get_name().to_lower():
+		vida = 5
 	#timer.set_wait_time(rand_range(8, 22))
 
 func _on_Bolha_body_enter( body ):
