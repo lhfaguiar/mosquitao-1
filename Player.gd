@@ -34,6 +34,8 @@ func _process(delta):
 		mat_accel = mat_accel.rotated(rads - PI)
 		projetil.set_linear_velocity(mat_accel)
 		projetil.set_pos(get_pos())
+		projetil.set_inertia(5)
+		projetil.set_angular_velocity(0.5)
 		get_parent().add_child(projetil)
 		timer = 0
 	botao_segurado = botao_atirar
