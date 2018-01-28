@@ -43,6 +43,5 @@ func _on_ParedeTopo_body_enter(body):
 func _end_game():
 	get_tree().change_scene("res://screens/Menu/Menu.tscn")
 
-
 func _on_Sprite_visibility_changed():
 	pass # replace with function body

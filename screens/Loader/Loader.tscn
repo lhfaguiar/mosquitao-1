@@ -1,54 +1,32 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://screens/Loader/Loader.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/MetalShard/MetalShard.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Objects/BackgroundLoading.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Myfrida/Myfrida.fnt" type="BitmapFont" id=3]
 
-[node name="Node2D" type="Control"]
+[node name="Node2D" type="Node2D"]
 
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 540.0
-margin/top = 960.0
-margin/right = -540.0
-margin/bottom = -960.0
+z/z = 400
 script/script = ExtResource( 1 )
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="BackgroundLoading" type="Sprite" parent="."]
 
-polygon = Vector2Array( -156.984, -144.756, 1271.26, -159.01, 1234.2, 1984.79, -139.879, 2041.8 )
-uv = Vector2Array(  )
-color = Color( 0.0664062, 0.0664062, 0.0664062, 1 )
-vertex_colors = ColorArray(  )
-offset = Vector2( 0, 0 )
-texture/texture = null
-texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
-texture/rotation = 0.0
-invert/enable = false
-invert/border = 100.0
+texture = ExtResource( 2 )
+centered = false
 
 [node name="Label" type="Label" parent="."]
 
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
+rect/scale = Vector2( 3.2, 3.2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 533.0
-margin/top = 962.0
-margin/right = 192.0
-margin/bottom = 787.0
-custom_fonts/font = ExtResource( 2 )
-text = "Loader"
+margin/left = 151.0
+margin/top = 816.0
+margin/right = 397.0
+margin/bottom = 892.0
+custom_fonts/font = ExtResource( 3 )
+text = "Loading..."
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
