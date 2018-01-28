@@ -4,9 +4,9 @@
 [ext_resource path="res://Objects/canhão.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Background2_jogofundo.png" type="Texture" id=3]
 [ext_resource path="res://Objects/Background2_folhas.png" type="Texture" id=4]
-[ext_resource path="res://Objects/pause.png" type="Texture" id=5]
-[ext_resource path="res://Objects/PHolderTriangle.png" type="Texture" id=6]
-[ext_resource path="res://Fonts/Myfrida/Myfrida.fnt" type="BitmapFont" id=7]
+[ext_resource path="res://Fonts/Myfrida/myfrida.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://Objects/pause.png" type="Texture" id=6]
+[ext_resource path="res://Objects/PHolderTriangle.png" type="Texture" id=7]
 [ext_resource path="res://Objects/return.png" type="Texture" id=8]
 
 [sub_resource type="GDScript" id=1]
@@ -94,8 +94,25 @@ texture = ExtResource( 3 )
 
 [node name="Background2_folhas" type="Sprite" parent="background"]
 
-transform/pos = Vector2( -0.525513, 0.62439 )
+transform/pos = Vector2( -1.71826, 0.62439 )
 texture = ExtResource( 4 )
+
+[node name="valor_pt" type="Label" parent="background/Background2_folhas"]
+
+rect/scale = Vector2( 1.25, 1.25 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -506.0
+margin/top = 778.0
+margin/right = -274.0
+margin/bottom = 919.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="ParedeEsquerda" type="StaticBody2D" parent="."]
 
@@ -147,8 +164,8 @@ _update_shape_index = 0
 
 visibility/visible = false
 transform/pos = Vector2( 830.195, 1678.45 )
-normal = ExtResource( 5 )
-pressed = ExtResource( 6 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -187,7 +204,7 @@ margin/left = 20.0
 margin/top = 20.0
 margin/right = -519.0
 margin/bottom = -332.0
-custom_fonts/title_font = ExtResource( 7 )
+custom_fonts/title_font = ExtResource( 5 )
 custom_colors/title_color = Color( 0.263992, 0.328685, 0.855469, 1 )
 popup/exclusive = true
 window/title = "Pause"
@@ -207,12 +224,13 @@ margin/bottom = 2280.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 6 )
+icon = ExtResource( 7 )
 flat = false
 
 [node name="button-restart" type="TouchScreenButton" parent="."]
 
-transform/pos = Vector2( 801.26, 1629.33 )
+transform/pos = Vector2( 901.741, 1731.48 )
+transform/scale = Vector2( 0.626467, 0.626467 )
 normal = ExtResource( 8 )
 pressed = null
 bitmask = null
@@ -222,6 +240,8 @@ shape_visible = true
 passby_press = false
 action = ""
 visibility_mode = 0
+
+[connection signal="script_changed" from="background/Background2_folhas/valor_pt" to="." method="_on_valor_pt_script_changed"]
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
 

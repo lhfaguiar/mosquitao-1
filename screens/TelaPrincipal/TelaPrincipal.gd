@@ -18,6 +18,8 @@ var current_scene
 
 func _ready():
 	set_process(true)
+	get_node("background/Background2_folhas/valor_pt").set_text(String(Loader.score))
+	#get_node("valor_pt").set_text(Loader.score)
 
 func _process(delta):
 	timer_total += delta
@@ -55,12 +57,6 @@ func _on_ParedeTopo_body_enter(body):
 func _end_game():
 	Loader.emit_signal("change_screen", "res://screens/GameOver/GameOver.tscn")	
 
-func _on_Sprite_visibility_changed():
-	pass # replace with function body
-
-#func _on_PlayButton_pressed():
-	#get_tree().set_pause(false)
-#	get_node("pause_popup").hide()
 
 func _on_PauseButton_pressed():
 	get_tree().set_pause(true)
@@ -74,3 +70,7 @@ func _on_PauseButton_pressed():
 
 func _on_buttonrestart_pressed():
 	Loader.emit_signal("change_screen", "res://screens/Menu/Menu.tscn")	
+
+
+func _on_valor_pt_script_changed():
+	pass # replace with function body

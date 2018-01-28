@@ -4,6 +4,7 @@ signal change_screen(path)
 
 var current_scene
 var result_loader 
+var score = 3
 
 func _ready():
 	hide()

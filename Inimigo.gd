@@ -21,7 +21,7 @@ func _on_Bolha_body_enter( body ):
 		body.queue_free()
 
 func _process(delta):
-	if get_pos().y > 2000:
+	if get_pos().y > 1600:
 		emit_signal("game_over")
 		queue_free()
 

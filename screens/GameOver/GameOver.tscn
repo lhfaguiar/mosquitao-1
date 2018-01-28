@@ -44,7 +44,7 @@ passby_press = false
 action = ""
 visibility_mode = 0
 
-[node name="Label" type="Label" parent="."]
+[node name="valor_pt" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -62,5 +62,7 @@ lines_skipped = 0
 max_lines_visible = -1
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+
+[connection signal="item_rect_changed" from="valor_pt" to="." method="_on_Label_item_rect_changed"]
 
 
