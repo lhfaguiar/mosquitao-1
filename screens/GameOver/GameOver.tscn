@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://screens/GameOver/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Background3_gameover.png" type="Texture" id=2]
-[ext_resource path="res://Objects/return.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Myfrida/myfrida.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Objects/return.png" type="Texture" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,11 +14,28 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 539.62, 961.261 )
 texture = ExtResource( 2 )
 
+[node name="pontuacao" type="Label" parent="."]
+
+rect/scale = Vector2( 0.8, 0.8 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 153.0
+margin/top = 1337.0
+margin/right = 727.0
+margin/bottom = 1478.0
+custom_fonts/font = ExtResource( 3 )
+text = "Pontuação:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 
-transform/pos = Vector2( 411.196, 1348.71 )
-normal = ExtResource( 3 )
-pressed = ExtResource( 3 )
+transform/pos = Vector2( 411.196, 1545.52 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 4 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -25,6 +43,23 @@ shape_visible = true
 passby_press = false
 action = ""
 visibility_mode = 0
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 641.0
+margin/top = 1324.0
+margin/right = 873.0
+margin/bottom = 1465.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.201782, 0.90625, 0.460454, 1 )
+text = "XXXX"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
 
