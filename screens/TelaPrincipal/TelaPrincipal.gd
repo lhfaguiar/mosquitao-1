@@ -48,15 +48,29 @@ func _process(delta):
 			alvo.set_gravity_scale(0)
 			alvo.set_linear_velocity(Vector2(0, (speed * (timer_total / 100)) + speed))
 			alvo.connect("game_over", self, "_end_game")
+			alvo.connect("dead", self, "_score")
 			add_child(alvo)
 		on = not on
 
 func _on_ParedeTopo_body_enter(body):
 	body.queue_free()
 
+
+func _score(name):
+	if "ovo" in name.to_lower():
+		Loader.score += 1
+	elif "larva" in name.to_lower():
+		Loader.score += 10
+	elif "mosquito" in name.to_lower():
+		Loader.score += 50
+	elif "mosquitao" in name.to_lower():
+		Loader.score += 100
+	get_node("background/Background2_folhas/valor_pt").set_text(String(Loader.score))
+	
+	
+		
 func _end_game():
 	Loader.emit_signal("change_screen", "res://screens/GameOver/GameOver.tscn")	
-
 
 func _on_PauseButton_pressed():
 	get_tree().set_pause(true)

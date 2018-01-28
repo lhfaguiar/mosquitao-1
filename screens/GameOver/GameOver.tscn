@@ -2,7 +2,7 @@
 
 [ext_resource path="res://screens/GameOver/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Background3_gameover.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/Myfrida/Myfrida.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Fonts/Myfrida/myfrida.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://Objects/return.png" type="Texture" id=4]
 
 [node name="Node2D" type="Node2D"]

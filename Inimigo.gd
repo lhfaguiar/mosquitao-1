@@ -8,6 +8,7 @@ var vida = 1
 onready var sprite = get_node("ovo")
 #onready var timer = get_node("timer")
 signal game_over
+signal dead
 
 func _ready():
 	set_process(true)
@@ -23,6 +24,7 @@ func _on_Bolha_body_enter( body ):
 	if "projetil" in body.get_name().to_lower():
 		vida -= 1
 		if vida <= 0:
+			emit_signal("dead", get_name())
 			queue_free()
 		body.queue_free()
 
