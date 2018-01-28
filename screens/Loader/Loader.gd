@@ -12,11 +12,13 @@ func _ready():
 	
 func _process(delta):
 	var err = result_loader.poll()
-	print(err)
 	if err == OK:
 		return
 	if err == ERR_FILE_EOF:
+		print("DONE")
 		call_deferred("_change_screen")
+	else:
+		print("ERROR")
 
 func _change_screen():
 	current_scene.free()

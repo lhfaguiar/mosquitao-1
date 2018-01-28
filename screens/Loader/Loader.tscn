@@ -2,7 +2,7 @@
 
 [ext_resource path="res://screens/Loader/Loader.gd" type="Script" id=1]
 [ext_resource path="res://Objects/BackgroundLoading.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/Myfrida/myfrida.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Fonts/Myfrida/Myfrida.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://Objects/macacos_dupla.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
