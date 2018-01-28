@@ -29,9 +29,9 @@ contact_monitor = false
 sleeping = false
 can_sleep = true
 velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.005
+velocity/angular = 30.0
 damp_override/linear = -1.0
-damp_override/angular = -1.0
+damp_override/angular = 0.5
 script/script = ExtResource( 1 )
 
 [node name="pholder_circle" type="Sprite" parent="."]

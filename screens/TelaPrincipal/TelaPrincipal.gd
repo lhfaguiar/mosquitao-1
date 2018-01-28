@@ -41,7 +41,24 @@ func _on_ParedeTopo_body_enter(body):
 	body.queue_free()
 
 func _end_game():
-	get_tree().change_scene("res://screens/Menu/Menu.tscn")
+	Loader.emit_signal("change_screen", "res://screens/GameOver/GameOver.tscn")	
 
 func _on_Sprite_visibility_changed():
 	pass # replace with function body
+
+#func _on_PlayButton_pressed():
+	#get_tree().set_pause(false)
+#	get_node("pause_popup").hide()
+
+func _on_PauseButton_pressed():
+	get_tree().set_pause(true)
+	get_node("pop-up-wrap").get_node("pause_popup").show()
+
+#TODO arrumar modal de pause
+#func _on_play_button_pressed():
+#	get_tree().set_pause(false)
+#	get_node("pause_popup").hide()
+
+
+func _on_buttonrestart_pressed():
+	Loader.emit_signal("change_screen", "res://screens/Menu/Menu.tscn")	

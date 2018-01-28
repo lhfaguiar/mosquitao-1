@@ -4,4 +4,4 @@ func _ready():
 	pass
 
 func _on_TouchScreenButton_pressed():
-	print("INICIO")
+	Loader.emit_signal("change_screen", "res://screens/TelaPrincipal/TelaPrincipal.tscn")

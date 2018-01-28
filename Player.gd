@@ -5,7 +5,7 @@ extends Sprite
 #y sen
 # em segundos
 const TURN_SPEED = deg2rad(4)
-const DELAY_TIRO = 0.3
+const DELAY_TIRO = 0.01
 const MIN_ANGULO = deg2rad(125)
 const MAX_ANGULO = deg2rad(235)
 # Ja comeca liberado
@@ -30,9 +30,11 @@ func _process(delta):
 	if botao_atirar and timer > DELAY_TIRO and not botao_segurado:
 		botao_segurado = true
 		var projetil = PROJETIL.instance()
-		var mat_accel = Vector2(0, -1000)
+		var mat_accel = Vector2(0, -2000)
 		mat_accel = mat_accel.rotated(rads - PI)
 		projetil.set_linear_velocity(mat_accel)
+		#TODO acertar velocidade dos projetos
+		#projetil.apply_impulse(Vector2(1000, 2000), Vector2(1000, 3000))
 		projetil.set_pos(get_pos())
 		projetil.set_inertia(5)
 		projetil.set_angular_velocity(0.5)
