@@ -1,8 +1,8 @@
 extends Node2D
 
 var INIMIGO = preload("res://OInimigo.tscn")
-var speed = 150
-var delay_spawn = 1
+var speed = 40
+var delay_spawn = speed * 0.08	
 var timer = delay_spawn
 var on = true
 var dificulty_mult = 0.2
@@ -20,10 +20,11 @@ func _process(delta):
 		for x in range(1, 8):
 			var alvo = INIMIGO.instance()
 			var loc = Vector2(x * 135, -100)
+			loc.y += rand_range(-20, 20)
 			if on:
-				loc.x -= 50
+				loc.x -= 50 * round(rand_range(-1, 1))
 			else:
-				loc.x += 50
+				loc.x += 50 * round(rand_range(-1, 1))
 			alvo.set_pos(loc)
 			alvo.set_gravity_scale(0)
 			alvo.set_linear_velocity(Vector2(0, (speed * (timer_total / 100)) + speed))
@@ -31,4 +32,4 @@ func _process(delta):
 		on = not on
 
 func _on_ParedeTopo_body_enter(body):
-	body.queue_free()
+	body.queue_free() 
