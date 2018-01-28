@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Objects/macacos_dupla.png" type="Texture" id=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 37.8035, 72.3755, 235.619, -7.98709, 532.343, 22.9216, 666.622, 205.522, 764.158, 770.912, 674.523, 928.546, 424.162, 1064.54, 112.474, 1022.55, -33.2866, 301.1 )
+
+[node name="Macaco" type="RigidBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -369.539, -505.907 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 100
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="macaquinho_feliz" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+transform/pos = Vector2( -369.539, -505.907 )
+build_mode = 0
+polygon = Vector2Array( 37.8035, 72.3755, 235.619, -7.98709, 532.343, 22.9216, 666.622, 205.522, 764.158, 770.912, 674.523, 928.546, 424.162, 1064.54, 112.474, 1022.55, -33.2866, 301.1 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+

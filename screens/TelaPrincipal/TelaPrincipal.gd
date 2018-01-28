@@ -2,7 +2,7 @@ extends Node2D
 
 var INIMIGO = preload("res://OInimigo.tscn")
 var speed = 40
-var delay_spawn = speed * 0.08	
+var delay_spawn = speed * 0.08
 var timer = delay_spawn
 var on = true
 var dificulty_mult = 0.2
